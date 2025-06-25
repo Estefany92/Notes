@@ -12,7 +12,6 @@
     <ScrollView>
         <VerticalStackLayout Spacing="20" Padding="20">
 
-            <!-- Encabezado -->
             <HorizontalStackLayout Spacing="10">
                 
                 <Label FontSize="22" FontAttributes="Bold" Text="{Binding Title}" VerticalOptions="End" />
@@ -21,6 +20,22 @@
 
             <Label Text="{Binding Message}" />
             <Button Text="Learn more..." Command="{Binding ShowMoreInfoCommand}" />
+
+            <Label Text="Miembros del equipo"
+               FontSize="24"
+               FontAttributes="Bold"
+               TextColor="#1565C0"
+               HorizontalOptions="Center" />
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+                <Frame  WidthRequest="120" HeightRequest="120" Padding="0" IsClippedToBounds="True">
+                    <Image Source="msc.png" Aspect="AspectFill"/>
+                </Frame>
+
+                <Frame WidthRequest="120" HeightRequest="120" Padding="0" IsClippedToBounds="True">
+                    <Image Source="meh.png" Aspect="AspectFill"/>
+                </Frame>
+            </HorizontalStackLayout>
 
 
         </VerticalStackLayout>
