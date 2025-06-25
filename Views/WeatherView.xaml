@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:localnamespace="clr-namespace:Notes.ViewModels"
              x:Class="Notes.Views.WeatherView"
              Title="WeatherView">
+    <ContentPage.BindingContext>
+        <localnamespace:WeatherViewModel/>
+    </ContentPage.BindingContext>
     <VerticalStackLayout>
         <Label 
             x:Name="LabelTemperatura"
-            Text="{Binding WeatherDataInfo.current.temperature_2n}"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            Text="{Binding WeatherDataInfo.current.temperature_2m}" />
+
+        <Label 
+            x:Name="LabelRain"
+            Text="{Binding WeatherDataInfo.current.rain}"/>
+
+        <Label 
+            x:Name="LabelHumidity"
+            Text="{Binding WeatherDataInfo.current.relative_humidity_2m}"/>
     </VerticalStackLayout>
 </ContentPage>
