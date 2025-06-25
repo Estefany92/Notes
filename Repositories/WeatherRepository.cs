@@ -27,7 +27,10 @@ namespace Notes.Repositories
         {
             //consumir el API
             HttpClient httpClient = new HttpClient();
-            string url = "https://api.open-meteo.com/v1/forecast?latitude="+latitude+"&longitude="+longitude+"&current=temperature_2m,relative_humidity_2m,rain";
+            string latitude_f = latitude.ToString().Replace(",", ".");
+            string longitude_f = longitude.ToString().Replace(",", ".");
+
+            string url = "https://api.open-meteo.com/v1/forecast?latitude="+ latitude_f + "&longitude="+ longitude_f + "&current=temperature_2m,relative_humidity_2m,rain";
 
             var response = await httpClient.GetAsync(url);
             var result = await response.Content.ReadAsStringAsync();

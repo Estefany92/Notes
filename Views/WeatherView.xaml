@@ -3,21 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:localnamespace="clr-namespace:Notes.ViewModels"
              x:Class="Notes.Views.WeatherView"
-             Title="WeatherView">
+             Title="Clima Actual">
     <ContentPage.BindingContext>
         <localnamespace:WeatherViewModel/>
     </ContentPage.BindingContext>
-    <VerticalStackLayout>
-        <Label 
-            x:Name="LabelTemperatura"
-            Text="{Binding WeatherDataInfo.current.temperature_2m}" />
+    <ScrollView>
 
-        <Label 
-            x:Name="LabelRain"
-            Text="{Binding WeatherDataInfo.current.rain}"/>
+        <VerticalStackLayout>
+        <!-- Lluvia -->
+        <Frame BackgroundColor="#E1F5FE" CornerRadius="20" Padding="15">
+            <HorizontalStackLayout Spacing="15">
+                <Image Source="{Binding RainIcon}" WidthRequest="40" HeightRequest="40"/>
+                <Label Text="{Binding WeatherDataInfo.current.rain, StringFormat='Lluvia: {0} mm'}"
+                           FontSize="18" TextColor="#0277BD"/>
+            </HorizontalStackLayout>
+        </Frame>
 
-        <Label 
-            x:Name="LabelHumidity"
-            Text="{Binding WeatherDataInfo.current.relative_humidity_2m}"/>
+        <!-- Humedad -->
+        <Frame BackgroundColor="#E8F5E9" CornerRadius="20" Padding="15">
+            <HorizontalStackLayout Spacing="15" VerticalOptions="Center">
+                <Image Source="gotadelluvia.jpg"
+                           WidthRequest="{Binding HumedadSize}" HeightRequest="{Binding HumedadSize}"/>
+                <Label Text="{Binding WeatherDataInfo.current.relative_humidity_2m, StringFormat='Humedad: {0}%'}"
+                           FontSize="18" TextColor="#2E7D32"/>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <!-- Temperatura -->
+        <Frame BackgroundColor="#FFF3E0" CornerRadius="20" Padding="15">
+            <HorizontalStackLayout Spacing="15">
+                <Image Source="{Binding TemperaturaIcon}" WidthRequest="40" HeightRequest="40"/>
+                <Label Text="{Binding WeatherDataInfo.current.temperature_2m, StringFormat='Temperatura: {0} °C'}"
+                           FontSize="18" TextColor="#EF6C00"/>
+            </HorizontalStackLayout>
+        </Frame>
+
+
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

@@ -18,9 +18,15 @@
             Icon="{OnPlatform 'recordatoriosicon.png', iOS='recordatoriosicon.png', MacCatalyst='recordatoriosicon.png'}"/>
 
         <ShellContent
-            Title="Estefani Huertas"
+            Title="About"
             ContentTemplate="{DataTemplate local:AboutPage}"
             Icon="{OnPlatform 'about.png', iOS='about.png', MacCatalyst='about.png'}" />
+
+        <ShellContent
+            Title="Wheather"
+            ContentTemplate="{DataTemplate local:WeatherView}"
+            Icon="{OnPlatform 'about.png', iOS='about.png', MacCatalyst='about.png'}" />
+
     </TabBar>
 
 </Shell>
