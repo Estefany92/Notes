@@ -9,5 +9,20 @@
         <viewModels:AboutViewModel />
     </ContentPage.BindingContext>
 
-    
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="20">
+
+            <!-- Encabezado -->
+            <HorizontalStackLayout Spacing="10">
+                
+                <Label FontSize="22" FontAttributes="Bold" Text="{Binding Title}" VerticalOptions="End" />
+                <Label FontSize="22" Text="{Binding Version}" VerticalOptions="End" />
+            </HorizontalStackLayout>
+
+            <Label Text="{Binding Message}" />
+            <Button Text="Learn more..." Command="{Binding ShowMoreInfoCommand}" />
+
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
