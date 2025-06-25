@@ -12,6 +12,11 @@
             ContentTemplate="{DataTemplate local:AllNotesPage}"
             Icon="{OnPlatform 'notas.png', iOS='notas.png', MacCatalyst='notas.png'}" />
 
+        <ShellContent 
+            Title="Recordatorios" 
+            ContentTemplate="{DataTemplate local:RecordatoriosPage}"
+            Icon="{OnPlatform 'recordatoriosicon.png', iOS='recordatoriosicon.png', MacCatalyst='recordatoriosicon.png'}"/>
+
         <ShellContent
             Title="Estefani Huertas"
             ContentTemplate="{DataTemplate local:AboutPage}"

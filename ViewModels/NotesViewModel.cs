@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace Notes.ViewModels;
 
-internal class NotesViewModel : IQueryAttributable
+internal partial class NotesViewModel : IQueryAttributable
 {
     public ObservableCollection<ViewModels.NoteViewModel> AllNotes { get; }
     public ICommand NewCommand { get; }

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:viewModels="clr-namespace:Notes.ViewModels"
+             x:Class="Notes.Views.RecordatoriosPage"
+             Title="RecordatoriosPage">
+    <ContentPage.BindingContext>
+        <viewModels:RecordatoriosViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="Nuevo Recordatorio" FontSize="20" FontAttributes="Bold" />
+
+            <Entry Placeholder="Texto del recordatorio" Text="{Binding NuevoTexto}" />
+
+            <DatePicker Date="{Binding FechaSeleccionada}" />
+            <TimePicker Time="{Binding HoraSeleccionada}" />
+
+            <Button Text="Agregar" Command="{Binding AgregarCommand}" />
+
+            <Label Text="Recordatorios Pendientes" FontSize="18" FontAttributes="Bold" />
+
+            <CollectionView ItemsSource="{Binding ListaRecordatorios}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Stroke="#ccc" StrokeThickness="1" Padding="10" Margin="0,5" BackgroundColor="#f8f8f8">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Texto}" FontSize="16" />
+                                <Label Text="{Binding FechaHora, StringFormat='Fecha: {0:dd/MM/yyyy HH:mm}'}" FontSize="14" />
+                                <Label Text="{Binding DiasRestantes, StringFormat='Faltan {0} días'}" FontSize="12" TextColor="Gray" />
+                                <Label Text="{Binding HorasRestantes, StringFormat='{0} horas'}" FontSize="12" TextColor="Gray" />
+                                <Label Text="{Binding MinutosRestantes, StringFormat='{0} minutos'}" FontSize="12" TextColor="Gray" />
+                                <Button Text="Eliminar"
+                                        Command="{Binding Source={x:Reference MainPage}, Path=BindingContext.EliminarCommand}"
+                                        CommandParameter="{Binding .}"
+                                        BackgroundColor="IndianRed"
+                                        TextColor="White"
+                                        CornerRadius="10" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+
+
+</ContentPage>
